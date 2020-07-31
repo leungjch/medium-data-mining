@@ -13,7 +13,7 @@ This repo contains the code for preprocessing, analysis, and modelling of the Me
 - **verifyData.ipynb**: Checks if there were tags less than or equal to distance of 2 from software-engineering that were not crawled. 
 
 
-# Small Data
+# Small Data Files
 
 Contains small data .csv files. The archive / story level data is too large to host on Github.
 
