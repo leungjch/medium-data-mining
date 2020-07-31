@@ -4,9 +4,15 @@
 
 # Analysis
 
-Contains Jupyter notebooks for exploratory data analysis of the Medium dataset on the tag / archive / story levels.
+- **Story_GetAuthorFeatures.ipynb**, **Story_GetPublicationFeatures.ipynb**, **Story_GetTagFeatures.ipynb**: These notebooks group the story dataset by authors, publications, and tags respectively and generate aggregated features (median, mean, sum, count) for ClapCount, ReadingTime, isPaywall, etc. For example for publications, this would generate the number of articles that a publication (e.g. Towards Data Science) has, and the mean/median/sum of claps of all articles in that publication, for every publication.  These features are joined onto the article level using pd.merge. 
 
-- **verifyData.ipynb**: 
+- **Archive_ExploratoryDataAnalysis.ipynb**: Contains an EDA of the Medium archive dataset (27+ million articles), which can also be run on the story level dataset (6 million articles). Explores relationships between tags, reading time, publications, users, etc.
+
+- **Story_LinearModel.ipynb**: Code for building linear and logistic regression models. 
+
+# Preprocessing scripts
+- **verifyData.ipynb**: Checks if there were tags less than or equal to distance of 2 from software-engineering that were not crawled. 
+
 
 # Processed Data
 
