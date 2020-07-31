@@ -13,7 +13,7 @@ This repo contains the code for preprocessing, analysis, and modelling of the Me
 - **verifyData.ipynb**: Checks if there were tags less than or equal to distance of 2 from software-engineering that were not crawled. 
 
 
-# Processed Data
+# Small Data
 
 Contains small data .csv files. The archive / story level data is too large to host on Github.
 
@@ -22,6 +22,7 @@ Contains small data .csv files. The archive / story level data is too large to h
 - **tags_to_complete_jul26.csv**: List of tags that were found to be missing from the df_story dataset that were later crawled, after the large scale crawling had been completed.
 - **distanceDict.csv**: List of all tags crawled, sorted by the shortest distance from the software-engineering tag. We cleaned the file (convert to lower case, replace spaces with hyphen) in **cleantags_final_m10.csv**, which we use in crawl_archive and crawl_story.
 - **pathDict.csv**: Tags sorted by shortest distance to software-engineering, with the shortest tag path shown. E.g. "code-coverage" -> "software-development" -> "software-engineering"
+- **df_story_raw_sample.csv**: A sample of the first 100 articles crawled in the raw data form. 
 
 # Crawlers
 
