@@ -1,6 +1,5 @@
 # Medium Mining
-
-
+This repo contains the code for preprocessing, analysis, and modelling of the Medium dataset, as well as the Scrapy crawlers used to build the Medium dataset.
 
 # Analysis
 
@@ -20,7 +19,7 @@ Contains small data .csv files. The archive / story level data is too large to h
 
 - **archive_tagsource.csv**: A list of tags and the number of stories associated with that tag, sorted in alphabetical order.
 - **cleantags_final_m10.csv**: The list of tags that were used in crawl_story and crawl_archive. We crawled the first 13,000 tags. 
-- **tags_to_complete_jul26.csv**: List of tags that were found to be missing from the df story dataset that were later crawled.
+- **tags_to_complete_jul26.csv**: List of tags that were found to be missing from the df_story dataset that were later crawled, after the large scale crawling had been completed.
 - **distanceDict.csv**: List of all tags crawled, sorted by the shortest distance from the software-engineering tag. We cleaned the file (convert to lower case, replace spaces with hyphen) in **cleantags_final_m10.csv**, which we use in crawl_archive and crawl_story.
 - **pathDict.csv**: Tags sorted by shortest distance to software-engineering, with the shortest tag path shown. E.g. "code-coverage" -> "software-development" -> "software-engineering"
 
