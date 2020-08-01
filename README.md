@@ -1,7 +1,7 @@
 # Medium Mining
 This repo contains the code for preprocessing, analysis, and modelling of the Medium dataset, as well as the Scrapy crawlers used to build the Medium dataset.
 
-# 1. Data folder
+# 1. Data folder (too big to host on Github)
 
 ## Raw data subfolder
 
