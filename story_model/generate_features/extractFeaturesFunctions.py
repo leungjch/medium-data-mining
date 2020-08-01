@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 import re
 import statistics
 
-
 def parallelize(data, func, num_of_processes=8):
     data_split = np.array_split(data, num_of_processes)
     pool = Pool(num_of_processes)
@@ -30,24 +29,22 @@ def extract_features_from_html_multiproc(data):
     if pd.notnull(data['StoryHTML']):
                
         # Using beautifulsoup        
-        soup = BeautifulSoup(data['StoryHTML'], features="lxml")
-        
-
+        soup = BeautifulSoup(data['StoryHTML'], "lxml")
         
         # Header information (author / title) is stored in <div> tag with no classname attribute
         # It is also the second section tag
-        featured_image = False
+        featured_image = 0
         
         header = soup.find_all("section") # Header is the second section
         if len(header)>=2:
             if header[1].find_all("img", {"role":"presentation"}):
-                featured_image = True
+                featured_image = 1
 
         # First <div> tag is the article itself, remove every other <div> afterwards
         headerDivs = soup.find_all("div", {'class':None})
-        if (headerDivs):  
-            for div in headerDivs[1:]:
-                div.decompose()
+        if headerDivs and len(headerDivs) >= 2:  
+            headerDiv = headerDivs[1]
+            headerDiv.decompose();
         
         # Extract num. images
         img_count = int(len(soup.find_all("img")))
