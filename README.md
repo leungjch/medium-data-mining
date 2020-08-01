@@ -1,21 +1,21 @@
 # Medium Mining
 This repo contains the code for preprocessing, analysis, and modelling of the Medium dataset, as well as the Scrapy crawlers used to build the Medium dataset.
 
-# 1. Data info
+# 1. Data folder
 
-## Raw data
+## Raw data subfolder
 
 The raw data was crawled in 4 chunks, 108GB in total. The majority of the space comes from HTML content (StoryHTML column).
 
 **df_story_chunk1 / 2 / 3 / 4.csv**: 72GB /  29GB / 4GB / 119MB = 108GB of raw data.
 
-## NoHTML
+## NoHTML subfolder
 
 The raw data, but HTML content stripped. Used for EDA of Medium and creating the files in Join_data subfolder of Generate_features (aggregated data for author/publication/tag level).
 
 **df_story_chunk1 / 2 / 3 / 4 _ NoHTML.csv**: 2.5GB /  1.1GB / 194MB / 4MB = 3.8GB of raw data with HTML content stripped.
 
-## Features
+## Features subfolder
 
 Extracting relevant story-level features **including textual content** and **joined data from tag/publication/author level**. The HTML is removed. 
 
@@ -23,7 +23,7 @@ Extracting relevant story-level features **including textual content** and **joi
 
 
 
-## Features_model
+## Features_model subfolder
 
 The same as df_story_features, but with all textual features (i.e. Text, CodeBlockRaw) stripped, for feeding into a model.
 
@@ -31,15 +31,15 @@ The same as df_story_features, but with all textual features (i.e. Text, CodeBlo
 
 **df_story_features_model_whole.csv**: 2.8GB
 
-# 2. Story Model
+# 2. Story_model folder
 
 Code for building linear/logistic/SVM models and generating a dataset suitable for modelling, and extracting story-level features from HTML.
 
-## Model
+## Model subfolder
 
 - **Story_LinearModel.ipynb**: Notebook for building linear and logistic regression models. 
 
-## Generate_features
+## Generate_features subfolder
 
 - **Story_GetAuthorFeatures.ipynb**, **Story_GetPublicationFeatures.ipynb**, **Story_GetTagFeatures.ipynb**: These notebooks group the story dataset by authors, publications, and tags respectively and generate aggregated features (median, mean, sum, count) for ClapCount, ReadingTime, isPaywall, etc. For example, for publications, this would generate the number (count) of articles that a publication (e.g. Towards Data Science) has, and the mean/median/sum of claps of all articles in that publication, for every publication.  These features are joined onto the article level using pandas.merge. 
 
@@ -51,23 +51,23 @@ Code for building linear/logistic/SVM models and generating a dataset suitable f
 
   
 
-  ## Join_data
+  ## Join_data sub-subfolder
 
   - **authorStats.csv**, **publicationStats.csv**, **tagStats.csv**: Data grouped by author/publication/tag that is aggregated on various features such as ClapCount, ReadingTime, etc. These files are used by **Story_GetAuthorFeatures.ipynb**, **Story_GetPublicationFeatures.ipynb**, **Story_GetTagFeatures.ipynb** to generate features for the model.
 
-# 3. Archive Analysis
+# 3. Archive_analysis folder
 
 Contains an EDA of Medium on the archive level.
 
 - **Archive_ExploratoryDataAnalysis.ipynb**: Contains an EDA of the Medium archive dataset, which can be run on the story level dataset (6 million articles). Explores relationships between tags, reading time, publications, users, etc.
 
-# 4. Preprocessing scripts
+# 4. Preprocessing_scripts folder
 
 Code for processing and generating cleaned data.
 
 - **verifyData.ipynb**: Checks if there were tags less than or equal to distance of 2 from software-engineering that were not crawled. 
 
-# 5. Small Data Files
+# 5. Small_data_files folder
 
 Contains small data .csv files. The archive / story level data is too large to host on Github.
 
@@ -78,7 +78,7 @@ Contains small data .csv files. The archive / story level data is too large to h
 - **pathDict.csv**: Tags sorted by shortest distance to software-engineering, with the shortest tag path shown. E.g. "code-coverage" -> "software-development" -> "software-engineering"
 - **df_story_raw_sample.csv**: A sample of the first 100 articles crawled in the raw data form. 
 
-# 6. Crawlers
+# 6. Crawlers folder
 
 Contains the code for Scrapy spiders.
 
