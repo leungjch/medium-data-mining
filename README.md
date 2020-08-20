@@ -81,7 +81,25 @@ Contains small data .csv files. The archive / story level data is too large to h
 - **pathDict.csv**: Tags sorted by shortest distance to software-engineering, with the shortest tag path shown. E.g. "code-coverage" -> "software-development" -> "software-engineering"
 - **df_story_raw_sample.csv**: A sample of the first 100 articles crawled in the raw data form. 
 
-# 6. Crawlers folder
+# 6. SOTorrent BigQuery folder
+Contains code and data for querying the [SOTorrent dataset](https://empirical-software.engineering/sotorrent/) to make Medium-related findings. The goal of this exploration was to show that Medium has become an important resource in SE, particularly as shown through its increased usage in referencing in Stack Overflow. 
+
+## query_sql subfolder
+Contains SQL code for querying SOTorrent.
+- **getTopDomains.sql**: Query the URL domains of the most referenced links on Stack Overflow (1) posts and (2) comments as of March 2020 .
+- **getNumberMediumLinks.sql**: Query the number of times that Medium has been linked on Stack Overflow (1) posts and (2) comments as of March 2020.
+- **getMediumLinkFrequencyMonthly.sql**: Query the frequency of links to Medium from 2010-2020, per month. 
+
+
+## query_results subfolder
+Contains the BigQuery results as .csv format. BigQuery limited the local file download to 16,000 rows.
+- **getMediumLinkFrequencyTimeSeries_Comment.csv** and **getMediumLinkFrequencyTimeSeries_Post.csv**: Queried results from **getMediumLinkFrequencyMonthly.sql**. 
+
+- **TopDomainsSO_Post.csv** and **TopDomainsSO_Comment.csv**: Queried results from **getTopDomains.sql**. The CSV files only show the top 16,000 domains due to BigQuery limitations. 
+
+
+
+# 7. Crawlers folder
 
 Contains the code for Scrapy spiders that generated the dataset.
 
