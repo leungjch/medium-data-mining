@@ -101,7 +101,7 @@ Contains the BigQuery results as .csv format. BigQuery limited the local file do
 
 # 7. Crawlers folder
 
-Contains the code for Scrapy spiders that generated the dataset. The spiders were used from May-June 2020, and may not work due to any site changes in Medium since.
+Contains the code for Scrapy spiders that generated the dataset. The spiders were used from May-June 2020, and may possibly not work due to any site changes in Medium since.
 
 - **crawl_tag**: Crawl the network of related tags on a Medium tag (e.g. medium.com/tag/software-engineering). 
 - **crawl_story**: Crawl the story level of Medium (specifically, everything enclosed within the \<article> tag of the HTML. The spider crawls from tags -> tag archive -> story. We obtained the tags from the crawl_tag spider.
